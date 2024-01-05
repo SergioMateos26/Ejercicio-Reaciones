@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Direccion;
+use App\Models\Post;
 
 class User extends Authenticatable
 {
@@ -47,5 +48,9 @@ class User extends Authenticatable
     public function direccion()
     {
         return $this->hasOne(Direccion::class, 'usuario_id');
+    }
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'usuario_id');
     }
 }

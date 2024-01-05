@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     function lista(){
         $usuarios=User::all();
-        return view('usuario',['usuarios' => $usuarios]);
+        $posts = Post::all(); 
+        return view('usuario',['usuarios' => $usuarios], ['posts' => $posts]);
     }
     function eliminar($id){
         User::destroy($id);

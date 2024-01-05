@@ -19,6 +19,7 @@
                 <a href="/usuario"><button>Usuario</button></a>
                 <a href="/direccion"><button>Direccion</button></a>
                 <a href="/lista/asignar"><button>Asignar</button></a>
+                <a href="/usuario/lista/post"><button>Post</button></a>
             </ul>
         </nav>
         @yield('crear_usuario')
@@ -29,5 +30,7 @@
         @yield('direccion_editar')
         @yield('asignar')
         @yield('lista_asignar')
+        @yield('crear_posts')
+        @yield('post_editar')
     </body>
 </html>

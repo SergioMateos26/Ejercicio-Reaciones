@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DireccionController;
 use App\Http\Controllers\AsignarController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,10 @@ Route::put('/direccion/editar/{id}', [DireccionController::class, 'editar']);
 
 Route::get('/lista/asignar' , [AsignarController::class, 'lista']);
 Route::post('/asignar' , [AsignarController::class, 'asignar']);
+
+
+Route::get('/usuario/lista/post', [PostController::class, 'lista']);
+Route::post('/usuario/crear/post', [PostController::class, 'crear']);
+Route::delete('/post/eliminar/{id}', [PostController::class, 'eliminar']);
+Route::get('/post/botonEditar/{id}', [PostController::class, 'botonEditar']); 
+Route::put('/post/editar/{id}', [PostController::class, 'editar']); 

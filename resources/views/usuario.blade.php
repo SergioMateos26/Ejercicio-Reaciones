@@ -43,6 +43,22 @@
             <td>{{$usuario->email}}</td>
             <td>@each('boton_eliminar_usuario', [$usuario], 'usuario')</td>
             <td>@each('boton_editar_usuario', [$usuario], 'usuario')</td>
+        <tr>
+            <th>Titulo</th>
+            <th>Texto</th>
+            <th>Eliminar</th>
+            <th>Editar</th>
+        </tr>
+@foreach($posts as $post)
+@if($post->usuario_id == $usuario->id)
+        <tr>
+            <td>{{$post->titulo}}</td>
+            <td>{{$post->texto}}</td>
+            <td>@each('boton_eliminar_post', [$post], 'post')</td>
+            <td>@each('boton_editar_post', [$post], 'post')</td>
+        </tr>
+@endif
+@endforeach
         </tr>
 @endforeach
     </table>
