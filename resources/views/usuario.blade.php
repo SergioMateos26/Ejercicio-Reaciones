@@ -41,8 +41,8 @@
             <td>{{$usuario->id}}</td>
             <td>{{$usuario->name}}</td>
             <td>{{$usuario->email}}</td>
-            <td>@each('eliminar', [$usuario], 'usuario')</td>
-            <td>@each('editar', [$usuario], 'usuario')</td>
+            <td>@each('boton_eliminar_usuario', [$usuario], 'usuario')</td>
+            <td>@each('boton_editar_usuario', [$usuario], 'usuario')</td>
         </tr>
 @endforeach
     </table>
