@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Tema;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     function lista(){
         $usuarios=User::all();
-        $posts = Post::all(); 
-        return view('usuario',['usuarios' => $usuarios], ['posts' => $posts]);
+        $posts = Post::all();
+        $temas = Tema::all();
+        $postsTemas = DB::select('SELECT * FROM post_tema'); 
+        return view('usuario',['usuarios' => $usuarios], ['posts' => $posts])->with('postsTemas', $postsTemas)->with('temas', $temas);
     }
     function eliminar($id){
         User::destroy($id);

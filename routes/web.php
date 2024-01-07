@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DireccionController;
 use App\Http\Controllers\AsignarController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TemaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +45,10 @@ Route::post('/usuario/crear/post', [PostController::class, 'crear']);
 Route::delete('/post/eliminar/{id}', [PostController::class, 'eliminar']);
 Route::get('/post/botonEditar/{id}', [PostController::class, 'botonEditar']); 
 Route::put('/post/editar/{id}', [PostController::class, 'editar']); 
+
+
+Route::get('/tema', [TemaController::class, 'lista']);
+Route::post('/tema/crear', [TemaController::class, 'crear']);
+Route::delete('/tema/eliminar/{id}', [TemaController::class, 'eliminar']);
+Route::get('/tema/botonEditar/{id}', [TemaController::class, 'botonEditar']); 
+Route::put('/tema/editar/{id}', [TemaController::class, 'editar']); 

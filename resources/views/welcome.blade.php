@@ -20,6 +20,7 @@
                 <a href="/direccion"><button>Direccion</button></a>
                 <a href="/lista/asignar"><button>Asignar</button></a>
                 <a href="/usuario/lista/post"><button>Post</button></a>
+                <a href="/tema"><button>Tema</button></a>
             </ul>
         </nav>
         @yield('crear_usuario')
@@ -32,5 +33,8 @@
         @yield('lista_asignar')
         @yield('crear_posts')
         @yield('post_editar')
+        @yield('crear_tema')
+        @yield('lista_temas')
+        @yield('tema_editar')
     </body>
 </html>

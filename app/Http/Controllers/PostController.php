@@ -5,33 +5,46 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Post;
-
+use App\Models\Tema;
 
 class PostController extends Controller
 {
     public function lista()
     {
-        $usuarios = User::all();       
-        return view('posts', ['usuarios' => $usuarios]);
+        $usuarios = User::all();
+        $temas = Tema::all();       
+        return view('posts', ['usuarios' => $usuarios, 'temas' => $temas]);
     }
-    function eliminar($id){
+
+    public function eliminar($id)
+    {
         Post::destroy($id);
         return redirect()->back();
     }
+
     public function crear(Request $request)
     {
         $usuario = User::find($request->get('usuarios'));
-        $usuario->posts()->create([
+        $tema = Tema::find($request->get('tema'));
+
+        $post = $usuario->posts()->create([
             'titulo' => $request->get('titulo'),
             'texto' => $request->get('texto'),
         ]);
+
+        $post->tema()->attach($tema);
+
         return redirect('/usuario');
     }
-    function botonEditar($id){
+
+    public function botonEditar($id)
+    {
         $post = Post::find($id);
         return view('post_editar',['post' => $post]);
     }
-    function editar(Request $request, $id){
+
+    public function editar(Request $request, $id)
+    {
         $post = Post::find($id);
         $post->titulo = $request->titulo;
         $post->texto = $request->texto;

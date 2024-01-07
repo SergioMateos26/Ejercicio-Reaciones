@@ -8,12 +8,20 @@
         <br>
             <form action="/usuario/crear/post"  method="POST">
                 @csrf
-                <label for= "usuarios">Usuario:</label>
-                <select name="usuarios">
-                    @foreach ($usuarios as $usuario)
-                        <option value="{{$usuario->id}}">{{ $usuario->name }}</option>
-                    @endforeach
-                </select>
+                <label for="usuarios">Usuario:
+                    <select name="usuarios">
+                        @foreach ($usuarios as $usuario)
+                            <option value="{{$usuario->id}}">{{ $usuario->name }}</option>
+                        @endforeach
+                    </select>
+                </label>
+                <label for="tema">Temas:
+                    <select name="tema">
+                        @foreach ($temas as $tema)
+                            <option value="{{$tema->id}}">{{ $tema->tema }}</option>
+                        @endforeach
+                    </select>
+                </label>
                 <label for="titulo">Titulo:
                     <input type="text" name="titulo">
                 </label>
