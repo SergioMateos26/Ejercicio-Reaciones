@@ -21,6 +21,8 @@
                 <a href="/lista/asignar"><button>Asignar</button></a>
                 <a href="/usuario/lista/post"><button>Post</button></a>
                 <a href="/tema"><button>Tema</button></a>
+                <a href="/api/posts/?"><button>Post usuario</button></a>
+                <a href="/api/postsRecent"><button>Post recientes</button></a>
             </ul>
         </nav>
         @yield('crear_usuario')
