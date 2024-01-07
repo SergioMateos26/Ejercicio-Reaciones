@@ -22,8 +22,23 @@ class UserController extends Controller
         return redirect()->back();
     }
     function crear(Request $request){
+
+        $request->validate([
+            'name' => ['required', 'string', 'max:20'],
+            'edad' => ['required', 'numeric', 'min:9', 'max:90'],
+            'fecha_de_nacimiento' => ['required', 'date'],
+            'gender' => ['required', 'in:masculino,femenino,otro'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'string', 'min:8', 'max:20'],
+        ]);
+        
+
+
         $usuario = new User();
         $usuario->name = $request->name;
+        $usuario->edad = $request->edad;
+        $usuario->fecha_de_nacimiento = $request->fecha_de_nacimiento;
+        $usuario->gender = $request->gender;
         $usuario->email = $request->email;
         $usuario->password = $request->password;
         $usuario->save();
@@ -36,6 +51,9 @@ class UserController extends Controller
     function editar(Request $request, $id){
         $usuario = User::find($id);
         $usuario->name = $request->name;
+        $usuario->edad = $request->edad;
+        $usuario->fecha_de_nacimiento = $request->fecha_de_nacimiento;
+        $usuario->gender = $request->gender;
         $usuario->email = $request->email;
         $usuario->password = $request->password;
         $usuario->save();
